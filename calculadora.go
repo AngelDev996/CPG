@@ -13,9 +13,10 @@ func main() {
 	scanner.Scan()
 	operacion := scanner.Text()
 	fmt.Println(operacion)
-	valores := strings.Split(operacion, "+")
-	fmt.Println(valores)
-	fmt.Println(valores[0] + valores[1])
+	operador := "-"
+	valores := strings.Split(operacion, operador)
+	// fmt.Println(valores)
+	// fmt.Println(valores[0] + valores[1])
 	operador1, err1 := strconv.Atoi(valores[0]) //Atoi castea string a enteros
 	operador2, err2 := strconv.Atoi(valores[1])
 
@@ -24,6 +25,20 @@ func main() {
 
 	} else {
 		fmt.Println(operador1 + operador2)
+	}
+
+	switch operador {
+	case "+":
+		fmt.Println(operador1 + operador2)
+
+	case "-":
+		fmt.Println(operador1 - operador2)
+
+	case "*":
+		fmt.Println(operador1 * operador2)
+
+	case "/":
+		fmt.Println(operador1 / operador2)
 	}
 
 }
