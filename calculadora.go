@@ -39,6 +39,9 @@ func main() {
 
 	case "/":
 		fmt.Println(operador1 / operador2)
+
+	default:
+		fmt.Println("Error, operador no valido")
 	}
 
 }
