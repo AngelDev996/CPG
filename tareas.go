@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 type tasklist struct {
 	tareas []*task
@@ -96,4 +98,7 @@ func main() {
 	}
 	listaTareas.imprimirLista()
 	listaTareas.imprimirCompletos()
+	mapaTareas := make(map[string]*tasklist) //Maps con structs
+	// mapaTareas["Angel"] = nuevaLista
+	// fmt.Println(nuevaLista)
 }
