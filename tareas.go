@@ -31,6 +31,22 @@ func (t *task) actualizarNombre(nombre string) { //
 	t.nombre = nombre
 }
 
+func (t *tasklist) imprimirLista() {
+	for _, tarea := range t.tareas {
+		fmt.Println("Nombre:", tarea.nombre)
+		fmt.Println("Descripcion:", tarea.descripcion)
+		fmt.Println("Completado:", tarea.completado)
+	}
+}
+
+func (t *tasklist) imprimirCompletos() {
+	for _, tarea := range t.tareas {
+		if tarea.completado == true {
+			fmt.Println("Tareas completadas:", tarea.nombre)
+		}
+	}
+}
+
 func main() {
 	t1 := &task{ //t es un apuntador(apunta al espacio de memoria de task)
 		nombre:      "Completar curso1",
@@ -45,6 +61,7 @@ func main() {
 	t3 := &task{ //t es un apuntador(apunta al espacio de memoria de task)
 		nombre:      "Completar curso3",
 		descripcion: "Completacion de curso3",
+		completado:  true,
 	}
 
 	listaTareas := &tasklist{
@@ -77,5 +94,6 @@ func main() {
 		fmt.Println(j)
 
 	}
-
+	listaTareas.imprimirLista()
+	listaTareas.imprimirCompletos()
 }
