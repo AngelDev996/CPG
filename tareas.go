@@ -98,7 +98,7 @@ func main() {
 	}
 	listaTareas.imprimirLista()
 	listaTareas.imprimirCompletos()
-	mapaTareas := make(map[string]*tasklist) //Maps con structs
+	// mapaTareas := make(map[string]*tasklist) //Maps con structs
 	// mapaTareas["Angel"] = nuevaLista
 	// fmt.Println(nuevaLista)
 }
