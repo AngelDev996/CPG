@@ -17,12 +17,20 @@ func main() {
 		"http://fast.com",
 	}
 
-	for _, servidor := range servidores {
-		go revisarServer(servidor, canal)
-	}
-	for i := 0; i < len(servidores); i++ {
+	i := 0
+
+	for {
+		if i > 2 {
+			break
+		}
+		for _, servidor := range servidores {
+			go revisarServer(servidor, canal)
+		}
+		time.Sleep(1 * time.Second)
 		fmt.Println(<-canal)
+		i++
 	}
+
 	tiempoPasado := time.Since(inicio)
 	fmt.Printf("Tiempo de ejecucion %s\n", tiempoPasado)
 }
@@ -30,10 +38,8 @@ func main() {
 func revisarServer(servidor string, canal chan string) {
 	_, err := http.Get(servidor)
 	if err != nil {
-		fmt.Println("Servidor no disponible")
 		canal <- servidor + " No se encuentra disponible"
 	} else {
-		fmt.Println("Servidor en funcionamiento")
 		canal <- servidor + " Servidor disponible"
 
 	}
